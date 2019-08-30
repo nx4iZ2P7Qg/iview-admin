@@ -458,5 +458,67 @@ export default [
       hideInMenu: true
     },
     component: () => import('@/view/error-page/404.vue')
+  },
+
+  // ------------------------- self -------------------------
+  {
+    path: '/test',
+    name: '测试rn',
+    meta: {
+      // icon: 'md-crop',
+      title: '测试rt'
+    },
+    component: Main,
+    children: [
+      {
+        path: 'test',
+        name: '测试sn',
+        meta: {
+          // icon: 'ios-document',
+          title: '测试st'
+        },
+        component: () => import('@/view/self/test/test.vue')
+      }
+    ]
+  },
+  {
+    path: '/profile_root',
+    name: 'profile_root_name',
+    meta: {
+      // icon: 'md-cloud-upload',
+      title: '生平1'
+    },
+    component: Main,
+    children: [
+      {
+        path: 'profile_sub',
+        name: 'profile_sub_name',
+        meta: {
+          // icon: 'ios-document',
+          title: '生平2'
+        },
+        component: () => import('@/view/self/profile/profile.vue')
+      }
+    ]
+  },
+  {
+    path: '/sophia',
+    name: 'sophia',
+    meta: {
+      // icon: 'md-cloud-upload',
+      title: '女王t'
+    },
+    component: Main,
+    children: [
+      {
+        path: 'menstrul',
+        name: 'menstrul',
+        meta: {
+          // icon: 'ios-document',
+          title: '生理t'
+        },
+        component: () => import('@/view/self/sophia/menstrul.vue')
+      }
+    ]
   }
 ]
