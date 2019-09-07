@@ -16,18 +16,17 @@ const addErrorLog = errorInfo => {
 }
 
 class HttpRequest {
-  constructor (baseUrl = baseURL) {
+  constructor (baseUrl) {
     this.baseUrl = baseUrl
     this.queue = {}
   }
   getInsideConfig () {
-    const config = {
+    return {
       baseURL: this.baseUrl,
       headers: {
         //
       }
     }
-    return config
   }
   destroy (url) {
     delete this.queue[url]
@@ -45,13 +44,14 @@ class HttpRequest {
       this.queue[url] = true
       return config
     }, error => {
+      // https://github.com/axios/axios/issues/1556
+      console.log('class HttpRequest instance.interceptors.request.use error')
       return Promise.reject(error)
     })
     // 响应拦截
     instance.interceptors.response.use(res => {
       this.destroy(url)
-      const { data, status } = res
-      return { data, status }
+      return res
     }, error => {
       this.destroy(url)
       let errorInfo = error.response
@@ -70,6 +70,8 @@ class HttpRequest {
   request (options) {
     const instance = axios.create()
     options = Object.assign(this.getInsideConfig(), options)
+    // https://github.com/axios/axios/issues/647
+    instance.defaults.timeout = 3000
     this.interceptors(instance, options.url)
     return instance(options)
   }
