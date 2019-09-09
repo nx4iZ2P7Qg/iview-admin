@@ -6,8 +6,8 @@
           <MenuItem name="unread">
             <span class="category-title">未读消息</span><Badge style="margin-left: 10px" :count="messageUnreadCount"></Badge>
           </MenuItem>
-          <MenuItem name="readed">
-            <span class="category-title">已读消息</span><Badge style="margin-left: 10px" class-name="gray-dadge" :count="messageReadedCount"></Badge>
+          <MenuItem name="read">
+            <span class="category-title">已读消息</span><Badge style="margin-left: 10px" class-name="gray-dadge" :count="messageReadCount"></Badge>
           </MenuItem>
           <MenuItem name="trash">
             <span class="category-title">回收站</span><Badge style="margin-left: 10px" class-name="gray-dadge" :count="messageTrashCount"></Badge>
@@ -31,8 +31,8 @@
                 :style="{ display: item.loading ? 'inline-block !important' : '' }"
                 :loading="item.loading"
                 size="small"
-                :icon="currentMessageType === 'readed' ? 'md-trash' : 'md-redo'"
-                :title="currentMessageType === 'readed' ? '删除' : '还原'"
+                :icon="currentMessageType === 'read' ? 'md-trash' : 'md-redo'"
+                :title="currentMessageType === 'read' ? '删除' : '还原'"
                 type="text"
                 v-show="currentMessageType !== 'unread'"
                 @click.native.stop="removeMsg(item)"></Button>
@@ -56,7 +56,7 @@
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 const listDic = {
   unread: 'messageUnreadList',
-  readed: 'messageReadedList',
+  read: 'messageReadList',
   trash: 'messageTrashList'
 }
 export default {
@@ -73,7 +73,7 @@ export default {
   computed: {
     ...mapState({
       messageUnreadList: state => state.user.messageUnreadList,
-      messageReadedList: state => state.user.messageReadedList,
+      messageReadList: state => state.user.messageReadList,
       messageTrashList: state => state.user.messageTrashList,
       messageList () {
         return this[listDic[this.currentMessageType]]
@@ -86,7 +86,7 @@ export default {
     }),
     ...mapGetters([
       'messageUnreadCount',
-      'messageReadedCount',
+      'messageReadCount',
       'messageTrashCount'
     ])
   },
@@ -98,7 +98,7 @@ export default {
       'getContentByMsgId',
       'getMessageList',
       'hasRead',
-      'removeReaded',
+      'removeRead',
       'restoreTrash'
     ]),
     stopLoading (name) {
@@ -122,7 +122,7 @@ export default {
     removeMsg (item) {
       item.loading = true
       const msg_id = item.msg_id
-      if (this.currentMessageType === 'readed') this.removeReaded({ msg_id })
+      if (this.currentMessageType === 'read') this.removeRead({ msg_id })
       else this.restoreTrash({ msg_id })
     }
   },

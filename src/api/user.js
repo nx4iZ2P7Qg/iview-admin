@@ -63,9 +63,9 @@ export const hasRead = msg_id => {
   })
 }
 
-export const removeReaded = msg_id => {
+export const removeRead = msg_id => {
   return axios.request({
-    url: 'message/remove_readed',
+    url: 'message/remove_read',
     method: 'post',
     data: {
       msg_id

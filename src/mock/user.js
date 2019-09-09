@@ -11,9 +11,9 @@ export const getMessageInit = () => {
       msg_id: Random.increment(100)
     }))
   })
-  let readedList = []
+  let readList = []
   doCustomTimes(4, () => {
-    readedList.push(Mock.mock({
+    readList.push(Mock.mock({
       title: Random.cword(10, 15),
       create_time: '@date',
       msg_id: Random.increment(100)
@@ -29,7 +29,7 @@ export const getMessageInit = () => {
   })
   return {
     unread: unreadList,
-    readed: readedList,
+    read: readList,
     trash: trashList
   }
 }
@@ -42,7 +42,7 @@ export const hasRead = () => {
   return true
 }
 
-export const removeReaded = () => {
+export const removeRead = () => {
   return true
 }
 
