@@ -51,15 +51,11 @@
       平均天数趋势
       浮动天数趋势
     </Row>
-    <Button type="primary" @click="fetchUrl">测试</Button>
     <div>{{ xxx }}</div>
   </Card>
 </template>
 
 <script>
-import {
-  get
-} from '../../../self/libs/axios-wrapper'
 
 export default {
   data () {
@@ -88,9 +84,7 @@ export default {
     }
   },
   methods: {
-    fetchUrl () {
-      get()
-    }
+
   },
   mounted () {
 
