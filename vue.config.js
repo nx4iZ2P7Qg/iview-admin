@@ -37,12 +37,29 @@ module.exports = {
   // 设为false打包时不生成.map文件
   productionSourceMap: false,
   // 这里写你调用接口的基础路径，来解决跨域，如果设置了代理，那你本地开发环境的axios的baseUrl要写为 '' ，即空字符串
+  // 如果@/config/index.js中的baseUrl不是空字符串，会被mock捕获到，以至于不能访问到后台
+  // 原串https://www.easy-mock.com/mock/5add9213ce4d0e69998a6f51/iview-admin/并没有发挥作用，但baseUrl的结构是必要的
   devServer: {
     host: '127.0.0.1',
     port: 9000,
     proxy: {
       // 后台请求要尊重已存在的前台路径(如/home)，且使用/xxx路径到各服务
       '/test': {
+        target: 'http://127.0.0.1:9003',
+        changeOrigin: true,
+        ws: true
+      },
+      '/login': {
+        target: 'http://127.0.0.1:9003',
+        changeOrigin: true,
+        ws: true
+      },
+      '/get_info': {
+        target: 'http://127.0.0.1:9003',
+        changeOrigin: true,
+        ws: true
+      },
+      '/message/count': {
         target: 'http://127.0.0.1:9003',
         changeOrigin: true,
         ws: true
