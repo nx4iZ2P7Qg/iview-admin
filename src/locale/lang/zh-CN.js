@@ -47,5 +47,5 @@ export default {
   profile_root_name: '生平rootName',
   profile_sub_name: '生平subName',
   sophia: '女王',
-  menstrul: '生理'
+  menstrual: '生理'
 }
