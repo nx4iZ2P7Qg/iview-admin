@@ -8,6 +8,8 @@ Mock.setup({
   timeout: 1000
 })
 
+// 参考：http://mockjs.com/
+
 // 登录相关和获取用户信息
 // Mock.mock(/\/login/, login)
 // Mock.mock(/\/get_info/, getUserInfo)

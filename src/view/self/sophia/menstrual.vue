@@ -4,6 +4,24 @@
     <br/>
     <Row>
       <Col span="4">
+        平均天数:
+      </Col>
+      <Col>
+        34.2
+      </Col>
+    </Row>
+    <br>
+    <Row>
+      <Col span="4">
+        浮动天数:
+      </Col>
+      <Col>
+        4.0
+      </Col>
+    </Row>
+    <br>
+    <Row>
+      <Col span="4">
         最近一次日期:
       </Col>
       <Col>
