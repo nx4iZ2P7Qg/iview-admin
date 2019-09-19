@@ -39,15 +39,15 @@ module.exports = {
   // 这里写你调用接口的基础路径，来解决跨域，如果设置了代理，那你本地开发环境的axios的baseUrl要写为 '' ，即空字符串
   // 如果@/config/index.js中的baseUrl不是空字符串，会被mock捕获到，以至于不能访问到后台
   // 原串 https://www.easy-mock.com/mock/5add9213ce4d0e69998a6f51/iview-admin/ 并没有发挥作用
-  // 若按文档建议，将baseUrl设置成''，会出现请求url不正常的情况，如http://127.0.0.1:9000/profile_root/get_info
+  // 若按文档建议，将baseUrl设置成''，会出现请求url不正常的情况，如http://127.0.0.1:330/profile_root/get_info
   // 其中profile_root是多余的，猜测是由于缺少baseUrl，路径都是以页面地址url为基础做相对路径处理
   devServer: {
     host: '127.0.0.1',
-    port: 9000,
+    port: 330,
     proxy: {
       // 后台请求要尊重已存在的前台路径(如/home)，且使用/xxx路径到各服务
       '/api/.*': {
-        target: 'http://127.0.0.1:9003',
+        target: 'http://127.0.0.1:333',
         changeOrigin: true,
         ws: true,
         pathRewrite: {
