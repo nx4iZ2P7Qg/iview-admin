@@ -138,14 +138,8 @@ export default {
         getMessage().then(res => {
           const { unread, read, trash } = res.data
           commit('setMessageUnreadList', unread.sort((a, b) => new Date(b.create_time) - new Date(a.create_time)))
-          commit('setMessageReadList', read.map(_ => {
-            _.loading = false
-            return _
-          }).sort((a, b) => new Date(b.create_time) - new Date(a.create_time)))
-          commit('setMessageTrashList', trash.map(_ => {
-            _.loading = false
-            return _
-          }).sort((a, b) => new Date(b.create_time) - new Date(a.create_time)))
+          commit('setMessageReadList', read.sort((a, b) => new Date(b.create_time) - new Date(a.create_time)))
+          commit('setMessageTrashList', trash.sort((a, b) => new Date(b.create_time) - new Date(a.create_time)))
           resolve()
         }).catch(error => {
           reject(error)
