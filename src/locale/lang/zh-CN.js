@@ -44,10 +44,17 @@ export default {
   drag_drawer_page: '可拖动抽屉',
   tree_select_page: '树状下拉选择器',
 
-  profile_root_name: '生平rootName',
-  profile_sub_name: '生平subName',
-  sophia: '女王',
-  menstrual: '生理',
-  video: '影视',
-  game: '游戏'
+  life: '生活',
+  profile: '生平',
+  lesson: '经验',
+  // game: '游戏',
+  game: '菜单2',
+  'FINAL FANTASY VIII': '最终幻想8',
+  'DRACULA X': '恶魔城X',
+  // sophia: '女王',
+  sophia: '菜单3',
+  // menstrual: '生理',
+  menstrual: '子菜单',
+  // video: '影视'
+  video: '子菜单'
 }

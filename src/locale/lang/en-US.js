@@ -42,12 +42,5 @@ export default {
   tree_table_page: 'Tree Table',
   org_tree_page: 'Org Tree',
   drag_drawer_page: 'Draggable Drawer',
-  tree_select_page: 'Tree Selector',
-
-  profile_root_name: 'profile_root_name',
-  profile_sub_name: 'profile_sub_name',
-  sophia: 'sophia',
-  menstrual: 'menstrual',
-  video: 'video',
-  game: 'game'
+  tree_select_page: 'Tree Selector'
 }

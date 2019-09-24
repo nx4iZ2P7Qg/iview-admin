@@ -470,26 +470,50 @@ export default [
 
   // ------------------------- self start -------------------------
   {
-    path: '/profile_root',
-    name: 'profile_root_name',
+    path: '/life',
+    name: 'life',
     meta: {
-      title: '生平1'
+      title: ' '
     },
     component: Main,
     children: [
       {
-        path: 'profile_sub',
-        name: 'profile_sub_name',
+        path: 'profile',
+        name: 'profile',
         meta: {
-          title: '生平2'
+          title: ' '
         },
         component: () => import('@/view/self/profile/profile.vue')
       },
       {
-        path: 'game',
-        name: 'game',
+        path: 'lesson',
+        name: 'lesson',
         meta: {
-          title: '游戏'
+          title: ' '
+        }
+      }
+    ]
+  },
+  {
+    path: '/game',
+    name: 'game',
+    meta: {
+      title: ' '
+    },
+    component: Main,
+    children: [
+      {
+        path: 'FINAL_FANTASY_VIII',
+        name: 'FINAL FANTASY VIII',
+        meta: {
+          title: ' '
+        }
+      },
+      {
+        path: 'DRACULA_X',
+        name: 'DRACULA X',
+        meta: {
+          title: ' '
         }
       }
     ]
