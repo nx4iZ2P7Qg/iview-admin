@@ -45,11 +45,12 @@
     <Row class="table">
       <Col>
         <Table  border :columns="columns" :data="data"></Table>
-        <!--<div style="margin: 10px;overflow: hidden">-->
-          <!--<div style="float: right;">-->
-            <!--<Page :total="12" :current="1" simple @on-change="changePage"></Page>-->
-          <!--</div>-->
-        <!--</div>-->
+        <div style="margin: 10px;overflow: hidden">
+          <div style="float: right;">
+            <Page :current="pageParam.pageNumber"
+                  :page-size="pageParam.pageSize" :total="totalElements" simple @on-change="changePage"></Page>
+          </div>
+        </div>
       </Col>
     </Row>
     <Row>
@@ -63,8 +64,9 @@
 
 <script>
 import {
-  glance
-} from '@/api/sophia'
+  getGlance,
+  getMenstrualRecords
+} from '@/api/queen'
 
 export default {
   data () {
@@ -78,41 +80,63 @@ export default {
         {
           title: '序号',
           align: 'center',
-          type: 'index'
+          key: 'id'
         },
         {
           title: '日期',
           align: 'center',
-          key: 'date'
-        }
-      ],
-      data: [
-        {
-          date: '2019-08-20'
+          key: 'dt'
         },
         {
-          date: '2019-01-01'
+          title: '添加记录日期',
+          align: 'center',
+          key: 'createAt'
         }
-      ]
+      ],
+      data: [],
+      pageParam: {
+        pageNumber: 1,
+        pageSize: 5
+      },
+      totalElements: 0
     }
   },
   methods: {
-
+    initGlance () {
+      getGlance().then(res => {
+        if (res.status === 200) {
+          this.mean = res.data.mean
+          this.varDays = res.data.varDays
+          this.lastDay = res.data.lastDay
+          this.days = res.data.days
+          this.next = res.data.next
+        } else {
+          this.$Message.error('响应异常')
+        }
+      }).catch(() => {
+        this.$Message.error('请求异常')
+      })
+    },
+    initTableDetail () {
+      getMenstrualRecords(this.pageParam).then(res => {
+        if (res.status === 200) {
+          this.data = res.data.content
+          this.totalElements = res.data.totalElements
+        } else {
+          this.$Message.error('响应异常')
+        }
+      }).catch(() => {
+        this.$Message.error('请求异常')
+      })
+    },
+    changePage (v) {
+      this.pageParam.pageNumber = v
+      this.initTableDetail()
+    }
   },
   mounted () {
-    glance().then(res => {
-      if (res.status === 200) {
-        this.mean = res.data.mean
-        this.varDays = res.data.varDays
-        this.lastDay = res.data.lastDay
-        this.days = res.data.days
-        this.next = res.data.next
-      } else {
-        this.$Message.error('响应异常')
-      }
-    }).catch(res => {
-      this.$Message.error('请求异常')
-    })
+    this.initGlance()
+    this.initTableDetail()
   }
 }
 </script>

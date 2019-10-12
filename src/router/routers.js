@@ -519,8 +519,8 @@ export default [
     ]
   },
   {
-    path: '/sophia',
-    name: 'sophia',
+    path: '/queen',
+    name: 'queen',
     meta: {
       title: ' '
     },
@@ -532,7 +532,7 @@ export default [
         meta: {
           title: ' '
         },
-        component: () => import('@/view/self/sophia/menstrual.vue')
+        component: () => import('@/view/self/queen/menstrual.vue')
       },
       {
         path: 'video',
