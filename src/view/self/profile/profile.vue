@@ -74,10 +74,8 @@
       <!--</Col>-->
       <Col>
           <Collapse simple accordion>
-            <!-- todo df v-bind:key -->
             <Panel v-for="profile in profiles" v-bind:key="profile.year">
               {{ profile.year }}
-              <!-- todo df v-bind:key -->
               <p v-for="event in profile.events" v-bind:key="event" slot="content">{{ event }}</p>
             </Panel>
           </Collapse>

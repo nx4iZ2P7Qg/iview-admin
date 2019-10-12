@@ -51,10 +51,7 @@ export default {
   game: '菜单2',
   'FINAL FANTASY VIII': '最终幻想8',
   'DRACULA X': '恶魔城X',
-  // queen: '女王',
-  queen: '菜单3',
-  // menstrual: '生理',
-  menstrual: '子菜单',
-  // video: '影视'
-  video: '子菜单'
+  queen: '女王',
+  menstrual: '生理',
+  video: '待定'
 }

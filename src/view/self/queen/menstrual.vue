@@ -1,5 +1,5 @@
 <template>
-  <Card>
+  <Card :padding="50">
     <h3 class="glance">总览</h3>
     <Row class="detail">
       <Col span="4">
@@ -44,7 +44,7 @@
     <h3>明细</h3>
     <Row class="table">
       <Col>
-        <Table  border :columns="columns" :data="data"></Table>
+        <Table border :columns="columns" :data="data"></Table>
         <div style="margin: 10px;overflow: hidden">
           <div style="float: right;">
             <Page :current="pageParam.pageNumber"
@@ -53,12 +53,13 @@
         </div>
       </Col>
     </Row>
-    <Row>
-      <h3>趋势</h3>
-      最近12个月/所有时间
-      平均天数趋势
-      浮动天数趋势
-    </Row>
+<!--    todo df 趋势数据，同比数据-->
+<!--    <Row>-->
+<!--      <h3>趋势</h3>-->
+<!--      最近12个月/所有时间-->
+<!--      平均天数趋势-->
+<!--      浮动天数趋势-->
+<!--    </Row>-->
   </Card>
 </template>
 
@@ -92,6 +93,7 @@ export default {
           align: 'center',
           key: 'createAt'
         }
+        // todo df 添加人，先完成用户功能才有
       ],
       data: [],
       pageParam: {
@@ -142,22 +144,17 @@ export default {
 </script>
 
 <style>
-.glance {
-  margin-left: 50px;
-  margin-top: 50px;
-  margin-bottom: 20px;
-}
 .detail {
-  margin-left: 50px;
-  margin-top: 10px;
+  margin: 10px;
 }
 h3 {
   margin-top: 50px;
   margin-bottom: 20px;
-  margin-left: 50px;
+}
+.glance {
+  margin-top: 0;
 }
 .table {
-  margin-left: 50px;
-  margin-right: 50px;
+  margin: 10px;
 }
 </style>
