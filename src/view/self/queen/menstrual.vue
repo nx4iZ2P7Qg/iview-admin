@@ -47,8 +47,8 @@
         <Table border :columns="columns" :data="data"></Table>
         <div style="margin: 10px;overflow: hidden">
           <div style="float: right;">
-            <Page :current="pageParam.pageNumber"
-                  :page-size="pageParam.pageSize" :total="totalElements" simple @on-change="changePage"></Page>
+            <Page :current="pageParam.number"
+                  :page-size="pageParam.size" :total="totalElements" simple @on-change="changePage"></Page>
           </div>
         </div>
       </Col>
@@ -97,8 +97,8 @@ export default {
       ],
       data: [],
       pageParam: {
-        pageNumber: 1,
-        pageSize: 5
+        number: 1,
+        size: 5
       },
       totalElements: 0
     }
@@ -132,7 +132,7 @@ export default {
       })
     },
     changePage (v) {
-      this.pageParam.pageNumber = v
+      this.pageParam.number = v
       this.initTableDetail()
     }
   },
