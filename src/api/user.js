@@ -1,6 +1,6 @@
 import axios from '@/libs/api.request'
 
-let baseUrl = 'user'
+let baseUrl = 'queen/user'
 
 export const login = ({ userName, password }) => {
   const data = {

@@ -47,7 +47,8 @@ module.exports = {
     proxy: {
       // 后台请求要尊重已存在的前台路径(如/home)，且使用/xxx路径到各服务
       '/api/.*': {
-        target: 'http://127.0.0.1:333',
+        // 指向gateway
+        target: 'http://127.0.0.1:332',
         changeOrigin: true,
         ws: true,
         pathRewrite: {
