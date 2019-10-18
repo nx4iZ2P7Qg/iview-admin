@@ -45,7 +45,7 @@ module.exports = {
     host: '127.0.0.1',
     port: 330,
     proxy: {
-      // 后台请求要尊重已存在的前台路径(如/home)，且使用/xxx路径到各服务
+      // 考虑前台路由(如/home)，后台api统一使用/api区别
       '/api/.*': {
         // 指向gateway
         target: 'http://127.0.0.1:332',
