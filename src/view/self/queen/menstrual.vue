@@ -53,7 +53,6 @@
         </div>
       </Col>
     </Row>
-<!--    todo df 趋势数据，同比数据-->
 <!--    <Row>-->
 <!--      <h3>趋势</h3>-->
 <!--      最近12个月/所有时间-->
@@ -93,7 +92,6 @@ export default {
           align: 'center',
           key: 'createAt'
         }
-        // todo df 添加人，先完成用户功能才有
       ],
       data: [],
       pageParam: {
